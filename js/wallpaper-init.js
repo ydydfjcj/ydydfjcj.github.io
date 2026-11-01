@@ -5,18 +5,25 @@
     if (!header || !box) return;
     if (box.parentNode !== header) header.insertBefore(box, header.firstChild);
 
-    if (window.innerWidth < 768) {
-      header.style.backgroundImage = "url('/img/bg.jpg')";
-      return;
-    }
+    if (window.innerWidth < 768) return;
+
     var G = window.WebWallGL;
-    if (!G || !G.mount) { console.warn('[wp] webwallgl 未加载'); return; }
+    if (!G || !G.mount) { console.warn('[wp] webwallgl 未加载，保留占位图'); return; }
+
+    function showCanvas() {
+      var cv = box.querySelector('canvas');
+      if (cv) cv.style.opacity = '1';
+    }
 
     G.mount(box, { source: G.httpSource('/wallpapers/2899043376') })
-      .then(function (wp) { window.__wp = wp; console.log('[wp] 渲染成功'); })
+      .then(function (wp) {
+        window.__wp = wp;
+        showCanvas();
+        requestAnimationFrame(showCanvas);
+        console.log('[wp] 渲染成功，已立即切换');
+      })
       .catch(function (e) {
-        console.warn('[wp] 渲染失败，降级为静态图', e);
-        header.style.backgroundImage = "url('/img/bg.jpg')";
+        console.warn('[wp] 渲染失败，保留占位图', e);
       });
 
     if ('IntersectionObserver' in window) {
