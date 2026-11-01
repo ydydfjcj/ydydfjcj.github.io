@@ -50,20 +50,14 @@
   background-color: #5E5B7A !important;
 }
 
-#wp {
+video.banner-video {
   position: absolute;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* canvas 默认透明：壁纸没画好之前，用户看到的是占位图 */
-#wp canvas {
   width: 100% !important;
   height: 100% !important;
-  display: block;
-  opacity: 0;
-  transition: none;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* 只抬升 banner 的文字内容，绝不动 #nav（导航必须保持 fixed 定位） */
