@@ -1,0 +1,48 @@
+/* ========== 1. 背景图：固定 + 模糊 ========== */
+#web_bg {
+  background-image: url('/img/bg.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  filter: blur(5px) brightness(0.85);
+  transform: scale(1.06);
+}
+
+/* ========== 2. 卡片毛玻璃 ========== */
+#recent-posts > .recent-post-item,
+.card-widget {
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.12) !important;
+}
+
+/* ========== 3. 深色模式 ========== */
+[data-theme="dark"] #recent-posts > .recent-post-item,
+[data-theme="dark"] .card-widget {
+  background: rgba(25, 25, 35, 0.55) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* ========== 4. 导航栏毛玻璃 ========== */
+#page-header.nav-fixed #nav {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+[data-theme="dark"] #page-header.nav-fixed #nav {
+  background: rgba(20, 20, 30, 0.6) !important;
+}
+
+/* ========== 5. 封面图圆角 ========== */
+#recent-posts > .recent-post-item .post_cover img {
+  border-radius: 14px;
+}
+
+/* ========== WebWallGL 容器 ========== */
+#page-header { position: relative; overflow: hidden; }
+#wp { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+#wp canvas { width: 100% !important; height: 100% !important; display: block; }
+#page-header > *:not(#wp) { position: relative; z-index: 2; }
