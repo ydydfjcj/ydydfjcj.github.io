@@ -67,3 +67,12 @@ video.banner-video {
   position: relative;
   z-index: 2;
 }
+/* ===== 公告里的运行时间 ===== */
+.runtime-time {
+  color: #8B7FD4;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+[data-theme="dark"] .runtime-time {
+  color: #B9A9FF;
+}

@@ -44,3 +44,21 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+/* ===== 站点运行时间 ===== */
+(function () {
+  var START = new Date('2026-11-02T00:00:00+08:00').getTime();
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function tick() {
+    var el = document.getElementById('blog-runtime');
+    if (!el) return;
+    var ms = Date.now() - START;
+    if (ms < 0) ms = 0;
+    var s = Math.floor(ms / 1000);
+    var d = Math.floor(s / 86400); s -= d * 86400;
+    var h = Math.floor(s / 3600); s -= h * 3600;
+    var m = Math.floor(s / 60); s -= m * 60;
+    el.textContent = d + ' 天 ' + pad(h) + ' 时 ' + pad(m) + ' 分 ' + pad(s) + ' 秒';
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
