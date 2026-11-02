@@ -9,7 +9,7 @@
 }
 
 /* ===== 2. 卡片毛玻璃 ===== */
-#recent-posts > .recent-post-item,
+#recent-posts .recent-post-item,
 .card-widget {
   background: rgba(255, 255, 255, .55) !important;
   backdrop-filter: blur(14px) saturate(160%);
@@ -18,7 +18,7 @@
   border-radius: 18px !important;
   box-shadow: 0 8px 32px rgba(31, 38, 135, .12) !important;
 }
-[data-theme="dark"] #recent-posts > .recent-post-item,
+[data-theme="dark"] #recent-posts .recent-post-item,
 [data-theme="dark"] .card-widget {
   background: rgba(25, 25, 35, .55) !important;
   border-color: rgba(255, 255, 255, .12) !important;
@@ -35,7 +35,7 @@
 }
 
 /* ===== 4. 文章封面圆角 ===== */
-#recent-posts > .recent-post-item .post_cover img {
+#recent-posts .recent-post-item .post_cover img {
   border-radius: 14px;
 }
 
@@ -75,4 +75,31 @@ video.banner-video {
 }
 [data-theme="dark"] .runtime-time {
   color: #B9A9FF;
+}
+/* ===== 文章详情页：整块内容做成毛玻璃 ===== */
+#post {
+  background: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, .12);
+}
+
+#article-container {
+  background: transparent !important;
+}
+
+[data-theme="dark"] #post {
+  background: rgba(25, 25, 35, 0.5) !important;
+  border-color: rgba(255, 255, 255, .1);
+}
+
+/* 版权块也透一点，避免在卡片里显得突兀 */
+.post-copyright {
+  background: rgba(255, 255, 255, .35) !important;
+  backdrop-filter: blur(6px);
+}
+[data-theme="dark"] .post-copyright {
+  background: rgba(255, 255, 255, .06) !important;
 }
